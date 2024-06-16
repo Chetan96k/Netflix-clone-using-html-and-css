@@ -5,10 +5,12 @@
     padding: 0;
     margin: 0;
     font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
 }
 
 body {
     background-color: black;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .main {
@@ -33,7 +35,7 @@ body {
 
 nav {
     margin: auto;
-    width: 76vw;
+    width: 90%;
     height: 80px;
     display: flex;
     align-items: center;
@@ -59,6 +61,52 @@ nav button {
     z-index: 10;
 }
 
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav {
+        width: 90vw;
+    }
+    
+    nav img {
+        width: 120px; /* Adjust the logo size */
+        top: 0; /* Adjust position if necessary */
+    }
+    
+    .nav_buttons {
+        gap: 10px; /* Reduce gap between buttons */
+    }
+    
+    nav button {
+        font-size: 14px; /* Adjust button font size */
+        padding: 5px 10px; /* Adjust button padding */
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    nav img {
+        width: 100px; /* Further adjust the logo size */
+        top: 0; /* Adjust position if necessary */
+    }
+
+    .nav_buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    nav button {
+        font-size: 12px; /* Further adjust button font size */
+        padding: 5px; /* Further adjust button padding */
+    }
+}
+
 .hero {
     font-family: "Martel Sans", sans-serif;
     height: calc(100% - 80px);
@@ -70,6 +118,8 @@ nav button {
     position: relative;
     gap: 23px;
     padding: 0 30px;
+    max-width: 100%; /* Prevent overflow */
+    text-align: center;
 }
 
 .hero> :nth-child(1) {
@@ -93,6 +143,41 @@ nav button {
 .seperation {
     background-color: rgb(66, 66, 66);
     height: 7px;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .hero> :nth-child(1) {
+        font-size: 40px; /* Adjust font size */
+    }
+    
+    .hero> :nth-child(2) {
+        font-size: 20px; /* Adjust font size */
+    }
+    
+    .hero> :nth-child(3) {
+        font-size: 18px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        gap: 15px; /* Reduce gap between elements */
+        padding: 0 15px; /* Adjust padding */
+    }
+
+    .hero> :nth-child(1) {
+        font-size: 30px; /* Further adjust font size */
+    }
+
+    .hero> :nth-child(2) {
+        font-size: 18px; /* Further adjust font size */
+    }
+
+    .hero> :nth-child(3) {
+        font-size: 16px; /* Further adjust font size */
+    }
 }
 
 .btn {
@@ -145,6 +230,18 @@ nav button {
     color: rgb(195, 195, 195);
 }
 
+@media (max-width: 1080px) {
+    .hero_buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn_getstarted {
+        margin-top: 10px; /* Adjust the spacing as needed */
+    }
+}
+
 .sec1, .sec2, .sec3, .sec4{
     display: flex;
     align-items: center;
@@ -169,6 +266,7 @@ nav button {
     width: 100%;
     max-width: 800px;
     margin: 0 auto; /* Center the container */
+    overflow: hidden;
 }
 
 .secObj1 img{
@@ -195,6 +293,22 @@ nav button {
     width: 50%;
 }
 
+@media (max-width: 1080px) {
+    .container1, .container3 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .secObj1,.secObj3{
+        width: 100%; /* Ensure the objects take full width */
+        margin-top: 30px; /* Adjust the spacing between text and objects */
+    }
+
+    .secText1, .secText3 {
+        width: 100%; /* Take full width on smaller screens */
+    }
+}
+
 .secText1 :nth-child(1), .secText2 :nth-child(1) {
     font-size: 48px; 
     font-weight: bolder;
@@ -208,53 +322,65 @@ nav button {
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 14px;
+    position: relative;
 }
 
 .overlay {
     position: absolute;
     bottom: 40px;
-    height: 90px;
-    width: 55%;
+    max-width: 55%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: rgba(0, 0, 0);
+    background: rgba(0, 0, 0, 0.8);
     border: 1px solid #545454;
     border-radius: 14px;
     padding: 10px;
+    box-sizing: border-box;
+}
+
+.overlay .boxshot {
+    width: 50px; /* Ensures the div adjusts to the content size */
+    height: auto; /* Ensures the div adjusts to the content size */
+    flex-shrink: 0; /* Prevents the boxshot from shrinking */
 }
 
 .overlay .boxshot img {
-    width: 60px;
+    width: 80%;
     height: auto;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-right: 15px;
-    left: 0;
 }
 
 .overlay .text{
+    flex: 1;
     display: flex;
     flex-direction: column;
     color: white;
-    margin-right: 120px;
-    left: 0;
+    margin-right: 10px;
 }
 
 .overlay .text :nth-child(1) {
-    font-size: medium;
+    font-size: 16px;
     font-weight: 600;
 }
 
 .overlay .text :nth-child(2) {
-    font-size: small;
+    font-size: 14px;
     font-weight: 300;
     color: #0071EB;
+}
+
+.overlay .download-icon {
+    margin-left: 10px; /* Adjust spacing between text and download icon */
 }
 
 .overlay .download-icon img {
     width: 30px;
     height: auto;
-    right: 0;
+    margin-left: auto;
 }
 
 .secText3 :nth-child(1) {
@@ -271,15 +397,18 @@ nav button {
     width: 100%;
     height: auto;
     z-index: 10;
+    position: relative;
 }
 
 .secObj3 video {
     position: absolute;
-    top: 30px;
-    left: 130px;
-    width: 63%;
-    height: 55%;
-    object-fit: cover;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%; /* Set the video width to 60% of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 60%; /* Limit video height to 60% of the container height */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
 
 .secText4 :nth-child(1) {
@@ -290,6 +419,24 @@ nav button {
 .secText4 :nth-child(2) {
     font-size: 24px;
 }
+
+@media (max-width: 1080px) {
+    .container2, .container4 {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .secText2, .secText4 {
+        width: 100%; /* Take full width on smaller screens */
+        margin-bottom: 20px;
+    }
+
+    .secObj2, .secObj4 {
+        width: 100%; /* Ensure the objects take full width */
+        margin-top: 30px; /* Adjust the spacing between text and objects */
+    }
+}
+
 
 .faq {
     background-color: black;
@@ -356,7 +503,17 @@ footer .author {
 
 .footer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1080px) {
+    .footer {
+        grid-template-columns: repeat(2, 1fr); /* Change to 2 columns on smaller screens */
+        gap: 20px; /* Add gap between columns */
+    }
+    footer {
+        height: 550px;
+    }
 }
 
 .footer_item {
