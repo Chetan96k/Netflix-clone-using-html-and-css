@@ -246,7 +246,7 @@ nav button {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 80vw;
+    max-width: 90vw;
     color: white;
     margin: auto;
     padding: 80px;
@@ -263,7 +263,7 @@ nav button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 50%;
     max-width: 800px;
     margin: 0 auto; /* Center the container */
     overflow: hidden;
@@ -418,6 +418,10 @@ nav button {
 
 .secText4 :nth-child(2) {
     font-size: 24px;
+}
+
+.secObj4 img{
+    width: 100%;
 }
 
 @media (max-width: 1080px) {
